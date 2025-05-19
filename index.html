@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hardik Vaghela - Portfolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      background: #f4f4f4;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #222;
+      color: #fff;
+      padding: 3rem 2rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeSlideIn 1s forwards;
+    }
+
+    section {
+      padding: 2rem;
+      background: #fff;
+      margin: 1rem auto;
+      border-radius: 8px;
+      max-width: 900px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      color: #222;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #222;
+      color: #fff;
+      margin-top: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideIn 1s forwards 1.5s;
+    }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hardik Vaghela</h1>
+    <p>Software Test Engineer</p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m a dedicated software test engineer with experience in manual and automation testing. I enjoy ensuring quality and reliability in every release.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+     <div class="project-card">
+  <h3>Poli Connect - Manual Testing</h3>
+  <p>Executed test cases and tracked bugs on the Poli Connect module of the Oltar app.</p>
+  <a href="poli-connect-test-execution.html" target="_blank" rel="noopener">View Test Execution Report</a><br/>
+  <a href="poli-connect-bug-report.html" target="_blank" rel="noopener">View Bug Report</a>
+</div>
+<div class="project-card">
+  <h3>Petition - Manual Testing</h3>
+  <p>Executed test cases and tracked bugs on the Petition module of the Oltar app.</p>
+  <a href="petition-test-execution.html" target="_blank" rel="noopener">View Test Execution Report</a><br/>
+  <a href="petition-bug-report.html" target="_blank" rel="noopener">View Bug Report</a>
+</div>
+
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Manual Testing</li>
+      <li>Python</li>
+      <li>SQL</li>
+      <li>Selenium</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="hardikv682@gmail.com">hardikv682@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/hardik-vaghela005/" target="_blank" rel="noopener">My Profile</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Hardik Vaghela</p>
+  </footer>
+
+<script>
+  const sections = document.querySelectorAll('section');
+
+  function checkVisibility() {
+    const triggerBottom = window.innerHeight * 0.85;
+    sections.forEach(section => {
+      const boxTop = section.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        section.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkVisibility);
+  window.addEventListener('load', checkVisibility);
+</script>
+
+</body>
+</html>
